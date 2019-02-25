@@ -1,19 +1,22 @@
-# Block devices
-/dev/block/mmcblk0p26				u:object_r:persist_block_device:s0
-
 # Glove Mode
-/sys/class/tp_glove/tp_glove/glove_enable	u:object_r:proc_touchpanel:s0
+/sys/class/tp_glove/tp_glove/glove_enable		u:object_r:proc_touchpanel:s0
 
-# Goodix Fingerprint
-/(vendor|system/vendor)/bin/gx_fpd		u:object_r:gx_fpd_exec:s0
+# Block devices
+/dev/block/mmcblk0p58					u:object_r:persist_block_device:s0
 
-# Input files
-/(vendor|system/vendor)/usr/idc(/.*)?		u:object_r:idc_file:s0
-/(vendor|system/vendor)/usr/keylayout(/.*)?	u:object_r:keylayout_file:s0
+# Decrypt
+/data/decrypt.txt					u:object_r:decrypt_file:s0
+
+# Audio Amp
+/persist/audio/tas2560_cal.txt				u:object_r:audio_cal_file:s0
+
+# Data files
+/data/misc/netmgr/log\.txt				u:object_r:netmgrd_data_file:s0
+
+# Fpc Fingerprint
+/sys/devices/soc/soc:fingerprint_fpc/irq		u:object_r:fpc_sysfs:s0
+/sys/devices/soc/soc:fingerprint_fpc/device_prepare	u:object_r:fpc_sysfs:s0
+/sys/devices/soc/soc:fingerprint_fpc/wakeup_enable	u:object_r:fpc_sysfs:s0
 
 # Ir
-/dev/lirc[0-9]*					u:object_r:lirc_device:s0
-
-# HALs
-/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.0-service\.xiaomi_mido		u:object_r:hal_fingerprint_mido_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.ir@1\.0-service\.xiaomi_mido					u:object_r:hal_ir_default_exec:s0
+/dev/lirc[0-9]*						u:object_r:lirc_device:s0

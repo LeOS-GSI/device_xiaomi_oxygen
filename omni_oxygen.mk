@@ -16,17 +16,24 @@
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
 # Inherit from oxygen device
 $(call inherit-product, device/xiaomi/oxygen/device.mk)
 
-# Inherit some common Bootleggers  stuff.
-$(call inherit-product, vendor/bootleggers/config/common_full_phone.mk)
+# Get the prebuilt list of APNs
+$(call inherit-product, vendor/omni/config/gsm.mk)
+
+# Inherit some common Omni  stuff.
+$(call inherit-product, vendor/omni/config/common.mk)
+
+#Boot Animation Omani Stuff.
+TARGET_BOOTANIMATION_SIZE := 1080p
+PRODUCT_PACKAGE_OVERLAYS += vendor/omni/overlay/CarrierConfig
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := oxygen
-PRODUCT_NAME := bootleg_oxygen
+PRODUCT_NAME := omni_oxygen
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Mi Max 2
 PRODUCT_MANUFACTURER := Xiaomi

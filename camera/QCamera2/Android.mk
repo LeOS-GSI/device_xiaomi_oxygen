@@ -46,7 +46,6 @@ LOCAL_SRC_FILES += \
         HAL/QCameraPostProc.cpp \
         HAL/QCamera2HWICallbacks.cpp \
         HAL/QCameraParameters.cpp \
-        HAL/CameraParameters.cpp \
         HAL/QCameraParametersIntf.cpp \
         HAL/QCameraThermalAdapter.cpp
 endif
@@ -78,9 +77,9 @@ LOCAL_C_INCLUDES := \
         $(LOCAL_PATH)/stack/mm-camera-interface/inc \
         $(LOCAL_PATH)/util \
         $(LOCAL_PATH)/HAL3 \
+        hardware/libhardware/include/hardware \
         hardware/qcom/media-caf-msm8996/libstagefrighthw \
         hardware/qcom/media-caf-msm8996/mm-core/inc \
-        hardware/qcom/media//mm-core/inc \
         system/core/include/cutils \
         system/core/include/system \
         system/media/camera/include/system
@@ -117,6 +116,7 @@ LOCAL_SHARED_LIBRARIES += libcutils libdl
 ifeq ($(TARGET_TS_MAKEUP),true)
 LOCAL_SHARED_LIBRARIES += libts_face_beautify_hal libts_detected_face_hal
 endif
+LOCAL_HEADER_LIBRARIES += media_plugin_headers
 
 LOCAL_STATIC_LIBRARIES := android.hardware.camera.common@1.0-helper
 
@@ -131,4 +131,3 @@ include $(BUILD_SHARED_LIBRARY)
 
 include $(call first-makefiles-under,$(LOCAL_PATH))
 endif
-

@@ -22,11 +22,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/xiaomi/oxygen/device.mk)
 
 # Inherit some common Bootleggers  stuff.
-$(call inherit-product, vendor/bootleggers/config/common_full_phone.mk)
+$(call inherit-product, vendor/dot/config/common.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := oxygen
-PRODUCT_NAME := bootleg_oxygen
+PRODUCT_NAME := dot_oxygen
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Mi Max 2
 PRODUCT_MANUFACTURER := Xiaomi
@@ -35,8 +35,8 @@ BOARD_VENDOR := Xiaomi
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
-BOOTLEGGERS_BUILD_TYPE := Unofficial
-DEVICE_MAINTAINERS="Scissordragonboy | Yassh Malik"
+DOT_BUILD_TYPE := Unofficial
+DEVICE_MAINTAINERS :="Scissordragonboy | Yassh Malik"
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
             PRIVATE_BUILD_DESC="oxygen-user 7.1.1 NMF26F 8.11.8 release-keys"
